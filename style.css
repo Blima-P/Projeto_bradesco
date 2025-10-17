@@ -1,0 +1,206 @@
+/* Variaveis de Cores (Apple Light Mode Feel) */
+:root {
+    --color-bg-light: #f5f5f7; /* Apple White/Light Grey */
+    --color-text-light: #1d1d1f; /* Apple Black */
+    --color-card-light: #ffffff; /* Card Background */
+    --color-primary: #007aff; /* Apple Blue (Links, CTA) */
+    --shadow-light: 0 4px 16px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+    --border-radius-large: 15px;
+    --border-radius-small: 10px;
+}
+
+/* BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Tipografia de sistema (Inter é uma excelente alternativa gratuita) */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Para o JavaScript de scroll suave */
+}
+
+/* NAVBAR e BOTÕES DE NAVEGAÇÃO (DESIGN APPLE CLEAN) */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--color-card-light);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); /* Linha divisória sutil */
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.nav-button {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: var(--border-radius-small);
+    font-weight: 600;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    color: var(--color-text-light);
+    margin-left: 10px;
+}
+
+.nav-button:hover {
+    background-color: #e0e0e0; /* Hover sutil */
+}
+
+/* BOTÕES CTA (CALL TO ACTION) */
+.cta-button {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: var(--border-radius-small);
+    font-weight: 600;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px 10px 0 0;
+}
+
+.primary {
+    background-color: var(--color-primary);
+    color: var(--color-card-light);
+    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.4); /* Sombra "Glow" Azul */
+}
+
+.primary:hover {
+    background-color: #006dd9;
+    transform: translateY(-1px); /* Efeito de elevação sutil */
+}
+
+.secondary {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 10px 20px;
+}
+
+.secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-card-light);
+    border-color: transparent;
+    transform: translateY(-1px);
+}
+
+/* LAYOUT E CARTÕES (CARDS) */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: var(--color-card-light);
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-light);
+    margin-bottom: 40px;
+    transition: transform 0.2s, box-shadow 0.2s; /* Para o efeito de hover do JS */
+}
+
+.hero-section {
+    text-align: center;
+    padding: 80px 40px;
+    margin-top: 30px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero-section h2 {
+    font-size: 1.5rem;
+    color: #6e6e73; /* Cor secundária Apple */
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* LISTA DE HABILIDADES */
+.skill-tag {
+    display: inline-block;
+    background-color: #e8e8ed;
+    color: var(--color-text-light);
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+/* EXPERIÊNCIA (TIMELINE) */
+.timeline-item {
+    border-left: 3px solid var(--color-primary);
+    padding-left: 20px;
+    margin-left: 10px;
+}
+.timeline-item h4 {
+    color: var(--color-primary);
+}
+.timeline-item .company {
+    font-style: italic;
+    color: #6e6e73;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+/* ANIMAÇÕES (PARA DAR UM AR MODERNO E INTERATIVO) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0; /* Garante que começa invisível */
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+/* AJUSTES PARA CELULAR */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+        position: static;
+    }
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
